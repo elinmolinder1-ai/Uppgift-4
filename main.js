@@ -10,7 +10,8 @@ addToDoBtn.addEventListener("click", addToDoList);
 
 let completedCount = 0;
 const todoArray = [];
-console.log(todoArray);
+
+
 //Funktion för att ändra status på rätt objekt i array
 function changeStatus(todoText, completed) {
   let changeindex = todoArray.map(t => t.name).indexOf(todoText);

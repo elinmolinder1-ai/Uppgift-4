@@ -11,15 +11,36 @@ h1{
 }
 
 .todoList{
-  background-color: rgb(255, 255, 255);
-  max-width:60%;
-  padding:10px;
+  background-color: #fff;
+  max-width: 60%;
+  padding: 10px;
   border-radius: 25px;
   height: 75vh;
-  margin:80px;
+  margin: 80px auto; /* centrerar på större skärmar */
 }
-.btnAddToList{
+
+/* Anpassning för mobil */
+@media (max-width: 600px) {
+  .todoList {
+    max-width: 90%;
+    margin: 20px auto;
+    height: auto; /* låt höjden växa med innehållet */
+ }
+
+  ul {
+    font-size: 16px; /* lite mindre text */
+  }
+
+  .btnAddToList {
+    width: 100%; /* knappen fyller hela bredden */
+  }
+}
+
+.btnAddToList {
   flex-wrap: wrap;
+  height: 44px;
+  font-size: 16px;
+  padding: 0 10px;
 }
 
 ul {
