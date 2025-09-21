@@ -21,10 +21,14 @@ h1{
 
 /* Anpassning för mobil */
 @media (max-width: 600px) {
+ body{
+  background-color:lightpink;
+}
+ 
   .todoList {
     max-width: 90%;
     margin: 20px auto;
-    height: auto; /* låt höjden växa med innehållet */
+    height: 100vh;
  }
 
   ul {
