@@ -4,40 +4,30 @@
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Uppgift 4</title>
+  <title>Uppgift 4 - Min första Todo-Lista!</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 
 </head>
 
 <body>
+
   <div class="todoList">
     <label for="input-text"></label>
-    <!--Presenterar vad sidan handlar om-->
-    <h1>My ToDo</h1>
-    <!--Lägga in en bild? eller någon text!-->
-    <!--Input textbox for new tasks, användaren skriver in sin todo-->
-    <p id="completed-tasks">0 Completeted tasks</p>
-    <input type="text" id="input-text" placeholder="Add new task...">
+    <h1>Min Todo-lista</h1>
+   
+    <input type="text" id="input-text" placeholder="Lägg till ny Todo...">
 
+    <button type="button" id="btnAddToList">Lägg till</button>
+    <hr />
+    <small></small>
 
-    <!--Button, när man klickar här hamnar uppgiften i listan nedan, to add to list och texten i rutan ska tömmas!-->
-    <button type="button" id="btnAddToList">OK</button>
-    <hr/>
-    <small></small><!--här kan man ha en tagg där man kan lägga dynamisk information -->
-
-    <!--List where all my to-dos are.Måste kunna klicka på den för att tala om att uppgiften är genomförd. Använda eventListener på den-->
     <ul id="todoList">
- <!--<li id="myUl-list"></li>-->
     </ul>
-<!-- Denna måste vara med, hur många uppgifter är klara, när man är färdig med en uppgift ska antalet öka, om man ångrar sig ska den räkna neråt igen-->
-    
+    <p id="completed-tasks"></p>
 
-
-
-  <!--Måste informera att man måste skriva in något i rutan!! -->
   </div>
-  <script src='main2.js'></script>
+  <script src='main.js'></script>
 </body>
 
 </html>
