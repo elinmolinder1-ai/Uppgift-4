@@ -1,42 +1,44 @@
-body{
+body {
   background-image: linear-gradient(to bottom right, rgb(252, 225, 239), rgb(174, 143, 161));
 }
-h1{
+
+h1 {
   color: rgb(58, 57, 57);
   background-image: linear-gradient(to bottom right, rgb(252, 225, 239), rgb(244, 154, 208));
   text-align: center;
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: lighter;
   font-style: italic;
 }
 
-.todoList{
+.todoList {
   background-color: #fff;
   max-width: 60%;
   padding: 10px;
   border-radius: 25px;
   height: 75vh;
-  margin: 80px auto; /* centrerar på större skärmar */
+  margin: 80px auto;
+  /* centrerar på större skärmar */
 }
 
 /* Anpassning för mobil */
-@media (max-width: 600px) {
- body{
-  background-color:lightpink;
-}
- 
+@media (max-width: 800px) {
+
   .todoList {
     max-width: 90%;
     margin: 20px auto;
     height: 100vh;
- }
+    background-color: red;
+  }
 
   ul {
-    font-size: 16px; /* lite mindre text */
+    font-size: 16px;
+    /* lite mindre text */
   }
 
   .btnAddToList {
-    width: 100%; /* knappen fyller hela bredden */
+    width: 100%;
+    /* knappen fyller hela bredden */
   }
 }
 
@@ -48,12 +50,12 @@ h1{
 }
 
 ul {
-   cursor: pointer;
-   list-style-type:circle;
-   font-size: 18px;
+  cursor: pointer;
+  list-style-type: circle;
+  font-size: 18px;
 }
 
-ul li .trashcan{
+ul li .trashcan {
   padding-left: 15px;
 }
 
@@ -63,9 +65,8 @@ ul li.completed span {
   font-style: italic;
 }
 
-ul li.completed .trashcan{
+ul li.completed .trashcan {
   text-decoration: none;
-  padding-left:15px;
-  font-style:normal;
+  padding-left: 15px;
+  font-style: normal;
 }
-
