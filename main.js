@@ -6,56 +6,52 @@ const addToDoBtn = document.querySelector("#btnAddToList");
 const infoTextElement = document.querySelector("small");
 const todoList = document.querySelector("#todoList");
 
-addToDoBtn.addEventListener("click", addToDoList);
-
+let todoText = "";
 let completedCount = 0;
-const todoArray = [];
+const alltodosArray = [];
+
+addToDoBtn.addEventListener('click', addToDoList);
 
 
 //Funktion för att ändra status på rätt objekt i array
 function changeStatus(todoText, completed) {
-  let changeindex = todoArray.map(t => t.name).indexOf(todoText);
+  let findIndex = alltodosArray.map(t => t.name).indexOf(todoText);
+  alltodosArray[findIndex].completed = completed;
+};
 
-  if (changeindex > - 1) {
-    todoArray[changeindex].status = completed;
-  }
-}
+/*Funktion för att radera från todo-lista*/
+function removeFromTodo(todoText) {
+  let indexToRemove = alltodosArray.map(t => t.name).indexOf(todoText);
+  alltodosArray.splice(indexToRemove, 1);
+};
 
-//Funktion för att radera från todo-lista
-function removeFromTodo(todoText){
-   let indexToRemove = todoArray.map(t => t.name).indexOf(todoText);
-  if (indexToRemove > -1) {
-    todoArray.splice(indexToRemove, 1);
-  }
-}
 //Funktion för att lägga till uppgift till listan
 function addToDoList() {
-  infoTextElement.textContent = "";
+  infoTextElement.textContent = ' ';
   const todoText = inputText.value.trim();
 
-  if (!todoText) {
-    infoTextElement.textContent = "Du måste skriva något i rutan!";
+  if (todoText.length == 0) {
+    infoTextElement.textContent = 'Du måste skriva något i rutan!';
     return;
   }
-//Lägg till nytt objekt i arrayen
-  const todo = { name: todoText, status: false };
-  todoArray.push(todo);
 
-  inputText.value = '';
+  //Lägg till nytt objekt i arrayen
+  const todoObject = { name: todoText, completed: false };
+  alltodosArray.push(todoObject);
 
   //Skapar ett li-element
   const listTask = document.createElement('li');
+  listTask.innerHTML = '&#9829; ';
   todoList.appendChild(listTask);
 
   //skapar en text-label
   const taskLabel = document.createElement('span');
   taskLabel.innerText = todoText;
-  listTask.appendChild(taskLabel);
 
-//Klicka på texten
+  //Klicka på texten
   taskLabel.addEventListener('click', function () {
     if (listTask.classList.contains('completed')) {
-      listTask.classList.remove("completed");
+      listTask.classList.remove('completed');
       completedCount--;
       changeStatus(todoText, false); // uppdatera arrayen
 
@@ -64,15 +60,17 @@ function addToDoList() {
       completedCount++;
       changeStatus(todoText, true); // uppdatera arrayen
     }
-    completedTasks.innerText = (`${completedCount} genomförda uppgifter!`);
+    completedTasks.textContent = (`${completedCount} genomförda uppgifter!`);
   });
 
-  //Skapa papperskorg
+  listTask.appendChild(taskLabel);
+
+  //Skapa en soptunna bredvid mina todo´s
   const trashcan = document.createElement('span');
   trashcan.innerHTML = '&#x1F5D1;';
-  trashcan.setAttribute('class', 'trashcan');
-  listTask.appendChild(trashcan);
-
+  trashcan.classList.add('trashcan');
+    listTask.appendChild(trashcan);
+ 
   //Klicka på papperskorgen och ta bort uppgift
   trashcan.addEventListener('click', function () {
     if (listTask.classList.contains('completed')) {
@@ -81,7 +79,9 @@ function addToDoList() {
 
     removeFromTodo(todoText); //Tar bort från array
     listTask.remove(); //Tar bort från DOM
-    //Skriver ut genomföra uppgifter
+
     completedTasks.innerText = `${completedCount} genomförda uppgifter!`;
   });
+ 
+  inputText.value = '';
 }
