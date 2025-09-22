@@ -50,8 +50,9 @@ h1 {
 
 ul {
   cursor: pointer;
-  list-style-type: circle;
+  list-style-type: none;
   font-size: 18px;
+  padding:2 PX;
 }
 
 ul li .trashcan {
@@ -62,10 +63,17 @@ ul li.completed span {
   background-color: #dcd9e0;
   text-decoration: line-through;
   font-style: italic;
+
 }
 
 ul li.completed .trashcan {
   text-decoration: none;
   padding-left: 15px;
   font-style: normal;
+  background-color: white;
+}
+
+.trashcan {
+  margin-left: 5px;
+
 }
