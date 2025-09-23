@@ -20,6 +20,7 @@ h1 {
   margin: 80px auto;
   /* centrerar på större skärmar */
 }
+
  
 /* Anpassning för mobil */
 @media (max-width: 800px) {
@@ -34,25 +35,13 @@ h1 {
     font-size: 16px;
     /* lite mindre text */
   }
-
-  .btnAddToList {
-    width: 100%;
-    /* knappen fyller hela bredden */
-  }
-}
-
-.btnAddToList {
-  flex-wrap: wrap;
-  height: 44px;
-  font-size: 16px;
-  padding: 0 10px;
 }
 
 ul {
   cursor: pointer;
-  list-style-type: none;
+  list-style-type: circle;
   font-size: 18px;
-  padding:2 PX;
+  padding:30px;
 }
 
 ul li .trashcan {
