@@ -6,7 +6,6 @@ const addToDoBtn = document.querySelector("#btnAddToList");
 const infoTextElement = document.querySelector("small");
 const todoList = document.querySelector("#todoList");
 
-let todoText = "";
 let completedCount = 0;
 const alltodosArray = [];
 
@@ -17,17 +16,17 @@ addToDoBtn.addEventListener('click', addToDoList);
 function changeStatus(todoText, completed) {
   let findIndex = alltodosArray.map(t => t.name).indexOf(todoText);
   alltodosArray[findIndex].completed = completed;
-};
+}
 
 /*Funktion för att radera från todo-lista*/
 function removeFromTodo(todoText) {
   let indexToRemove = alltodosArray.map(t => t.name).indexOf(todoText);
   alltodosArray.splice(indexToRemove, 1);
-};
+}
 
 //Funktion för att lägga till uppgift till listan
 function addToDoList() {
-  infoTextElement.textContent = ' ';
+  infoTextElement.textContent = '';
   const todoText = inputText.value.trim();
 
   if (todoText.length == 0) {
@@ -41,7 +40,7 @@ function addToDoList() {
 
   //Skapar ett li-element
   const listTask = document.createElement('li');
-  listTask.innerHTML = '&#9829; ';
+  //listTask.innerHTML = '&#9829; ';
   todoList.appendChild(listTask);
 
   //skapar en text-label
@@ -69,19 +68,21 @@ function addToDoList() {
   const trashcan = document.createElement('span');
   trashcan.innerHTML = '&#x1F5D1;';
   trashcan.classList.add('trashcan');
-    listTask.appendChild(trashcan);
- 
+  listTask.appendChild(trashcan);
+
   //Klicka på papperskorgen och ta bort uppgift
   trashcan.addEventListener('click', function () {
     if (listTask.classList.contains('completed')) {
       completedCount--;
     }
-
-    removeFromTodo(todoText); //Tar bort från array
-    listTask.remove(); //Tar bort från DOM
+    //Tar bort från array
+    removeFromTodo(todoText);
+    
+    //Tar bort från DOM
+    listTask.remove(); 
 
     completedTasks.innerText = `${completedCount} genomförda uppgifter!`;
   });
- 
+
   inputText.value = '';
 }
